@@ -1,3 +1,7 @@
+Senin , 8 Juni 2015 :
+
+Progress :
+
 1. Use Case (FIX)
 2. System (On Progress)
 3. Database Design (On Progress)
