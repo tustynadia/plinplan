@@ -3119,11 +3119,14 @@ a.subdued {
       color: #fff; }
     .bar.bar-assertive.bar-footer {
       background-image: linear-gradient(180deg, #e42012, #e42012 50%, transparent 50%); }
+
   .bar.bar-balanced {
     border-color: #28a54c;
-    background-color: #33cd5f;
+    background-color: #3498db; /* perubahan warna disini pada footer   */
     background-image: linear-gradient(0deg, #28a54c, #28a54c 50%, transparent 50%);
     color: #fff; }
+
+
     .bar.bar-balanced .title {
       color: #fff; }
     .bar.bar-balanced.bar-footer {
@@ -5286,7 +5289,9 @@ a.item-content {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 20px; 
+  
+}
 
 .list:last-child {
   margin-bottom: 0px; }

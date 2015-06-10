@@ -1,0 +1,13 @@
+<ion-view view-title="Pull To Refresh">
+	<!--ion-content>
+		<ion-list>
+			<h4>aaa</h4>
+		</ion-list>
+	</ion-content-->
+	<ion-content>
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+		<ion-list>
+			<ion-item ng-repeat="item in items">{{item}}</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
