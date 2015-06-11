@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
  
     $scope.loadImages = function() {
         for(var i = 0; i < 100; i++) {
-            $scope.images.push({id: i, src: "../img/img.png"});
+            $scope.images.push({id: i, src: "img/img.png"});
         }
     }
  

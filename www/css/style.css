@@ -10,3 +10,17 @@
     z-index: 2;
     position: relative;
 }
+
+.img50-kiri{
+	width: 48%;
+	float: left;
+}
+.pad-kanan{
+	padding-right: 1%;
+}
+.pad-kiri{
+	padding-left: 1%;
+}
+.clear-both{
+	clear: both;
+}
