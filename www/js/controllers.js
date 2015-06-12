@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $http, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $http, $ionicModal, $timeout, $ionicPopup) {
   
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -39,23 +39,47 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
-//$scope.kumpulin = {
-	
-//};
+$scope.kosongkanFormDewa = function(){
+	$scope.username = "";
+	$scope.password = "";
+	$scope.nama = "";
+	$scope.level_user = "";
+};
 $scope.kumpul = function() {
 	$http
-		.post('http://plinplan.esy.es/coba.php',
+		.post('http://plinplan.esy.es/index.php/dewa/add',
 			{
 				'username':$scope.username,
-				'website': 'http://plinplan.esy.es/coba.php'
+				'password': $scope.password,
+				'nama': $scope.nama,
+				'level_user': $scope.level_user
 			}
 		)
 		.success(function(data, status, headers, config) {
-			$scope.respon = data;
+			//$scope.respon = data;
+			var stt = "";
+			if(data == 1){
+				//$scope.respon = "Insert data successful.";
+				stt = "Insert data successful.";
+			}else{
+				//$scope.respon = "Insert data error or warning.";
+				stt = "Insert data error or warning. "+data;
+			}
+			
+			$scope.respon = $ionicPopup.alert({
+				title: 'Notification',
+				template: stt
+			});
+			$scope.kosongkanFormDewa();
 		})
 		.error(function(data, status) {
 			//$scope.respon.push(status);
-			$scope.respon = "Error "+data+" "+status;
+			//$scope.respon = "Error when inserting data. Check your connection or report this bug!";
+			$scope.respon = $ionicPopup.alert({
+				title: 'Notification',
+				template: "Error when inserting data. Check your connection or report this bug!"
+			});
+			$scope.kosongkanFormDewa();
 		});
 	}
 })
@@ -85,4 +109,15 @@ $scope.kumpul = function() {
         }
     }
  
+})
+
+.controller("datalistDewaCtrl", function($scope,$state, listdewaService){
+	$scope.showData = function() {
+		listdewaService.getAll().success(function(data) {
+			$scope.datadewas = data;
+		}).finally(function() {
+			$scope.$broadcast('scroll.refreshComplete');
+		});
+	};
+	$scope.showData();
 });

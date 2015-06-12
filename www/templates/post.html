@@ -5,7 +5,7 @@
           <span class="input-label">Username</span>
           <input type="text" ng-model="username" />
         </label>
-        <!--label class="item item-input">
+        <label class="item item-input">
           <span class="input-label">Password</span>
           <input type="password" ng-model="password" />
         </label>
@@ -16,11 +16,11 @@
         <label class="item item-input">
           <span class="input-label">Level User</span>
           <input type="number" ng-model="level_user" />
-        </label-->
+        </label>
         <label class="item">
-          <button ng-click="kumpul();">Submit</button>
+          <button class="button button-block button-positive" ng-click="kumpul();">Submit</button>
         </label>
     </form>
-    {{respon}}
+    <div style="display:none;">{{respon}}</div>
   </ion-content>
 </ion-view>
