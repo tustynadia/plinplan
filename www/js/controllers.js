@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $http, $ionicModal, $timeout) {
   
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -39,6 +39,25 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+//$scope.kumpulin = {
+	
+//};
+$scope.kumpul = function() {
+	$http
+		.post('http://plinplan.esy.es/coba.php',
+			{
+				'username':$scope.username,
+				'website': 'http://plinplan.esy.es/coba.php'
+			}
+		)
+		.success(function(data, status, headers, config) {
+			$scope.respon = data;
+		})
+		.error(function(data, status) {
+			//$scope.respon.push(status);
+			$scope.respon = "Error "+data+" "+status;
+		});
+	}
 })
 
 // .controller('PlaylistsCtrl', function($scope) {
@@ -54,8 +73,6 @@ angular.module('starter.controllers', [])
 
 // .controller('PlaylistCtrl', function($scope, $stateParams) {
 // })
-
-
 
 // galeri controller
 .controller("Gallery", function($scope) {

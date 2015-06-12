@@ -18,22 +18,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       StatusBar.styleDefault();
     }
   });
-  
-  $ionicPlatform.ready(function() {
-      if(window.Connection) {
-          if(navigator.connection.type == Connection.NONE) {
-              $ionicPopup.confirm({
-                  title: "Internet Disconnected",
-                  content: "The internet is disconnected on your device."
-              })
-              .then(function(result) {
-                  if(!result) {
-                      ionic.Platform.exitApp();
-                  }
-              });
-          }
-      }
-  });
 })
 
 
@@ -100,17 +84,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           templateUrl: "templates/recentposts.html"
         }
       }
+    })
+    
+    .state('app.posting', {
+    	url: "/posting",
+    	views:{
+    		'menuContent':{
+    			templateUrl: 'templates/post.html'
+    		}
+    	}
     });
-
-  // .state('app.single', {
-  //   url: "/playlists/:playlistId",
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: "templates/playlist.html",
-  //       controller: 'PlaylistCtrl'
-  //     }
-  //   }
-  // });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/recentposts');
