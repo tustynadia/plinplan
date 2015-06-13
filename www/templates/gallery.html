@@ -1,6 +1,7 @@
 <ion-view view-title="Gallery">
 
 <ion-content ng-controller="Gallery" ng-init="loadImages()">
+	<div id="mytext"></div>aaa
     <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
         <div class="col col-25" ng-if="$index < images.length">
             <img ng-src="{{images[$index].src}}" width="100%" />

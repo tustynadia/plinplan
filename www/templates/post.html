@@ -1,5 +1,26 @@
 <ion-view view-title="Post">
-  <ion-content>
-    <input type="file" />
+  <ion-content ng-controller="AppCtrl">
+    <form>
+    	<label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="username" />
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="password" />
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Nama Lengkap</span>
+          <input type="text" ng-model="nama" />
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Level User</span>
+          <input type="number" ng-model="level_user" />
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="kumpul();">Submit</button>
+        </label>
+    </form>
+    <div style="display:none;">{{respon}}</div>
   </ion-content>
 </ion-view>

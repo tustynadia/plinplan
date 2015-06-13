@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,22 +17,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
-  
-  $ionicPlatform.ready(function() {
-      if(window.Connection) {
-          if(navigator.connection.type == Connection.NONE) {
-              $ionicPopup.confirm({
-                  title: "Internet Disconnected",
-                  content: "The internet is disconnected on your device."
-              })
-              .then(function(result) {
-                  if(!result) {
-                      ionic.Platform.exitApp();
-                  }
-              });
-          }
-      }
   });
 })
 
@@ -100,17 +84,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           templateUrl: "templates/recentposts.html"
         }
       }
-    });
-
-  // .state('app.single', {
-  //   url: "/playlists/:playlistId",
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: "templates/playlist.html",
-  //       controller: 'PlaylistCtrl'
-  //     }
-  //   }
-  // });
+    })
+    
+    .state('app.posting', {
+    	url: "/posting",
+    	views:{
+    		'menuContent':{
+    			templateUrl: 'templates/post.html'
+    		}
+    	}
+    })
+    
+	.state('app.listdewa',{
+		url: "/listdewa",
+		views:{
+			'menuContent':{
+				templateUrl: 'templates/listdewa.html',
+				controller: 'datalistDewaCtrl'
+			}
+		}
+	});
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/recentposts');
